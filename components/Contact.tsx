@@ -1,88 +1,156 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { Github, Linkedin, Instagram, Code2, Mail, Phone } from "lucide-react";
 
 export default function Contact() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-120px" });
 
   return (
     <section
       ref={ref}
-      className="py-16 sm:py-20 lg:py-24 px-4 sm:px-8 lg:px-16 bg-gradient-to-b from-black to-gray-950"
       id="contact"
+      className="bg-black px-6 sm:px-10 lg:px-24 py-32"
     >
-      <div className="max-w-4xl mx-auto">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl sm:text-5xl font-bold mb-4 text-white text-center"
-        >
-          Get In Touch
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-gray-400 text-lg mb-12 text-center"
-        >
-          Let's collaborate on your next project
-        </motion.p>
+      <div className="max-w-7xl mx-auto">
 
+        {/* Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="mb-16"
+        >
+          <h2 className="text-5xl sm:text-6xl font-bold text-white mb-4">
+            Let’s connect
+          </h2>
+          <p className="text-xl text-gray-400 max-w-2xl">
+            If you're building something serious — infrastructure, SaaS, or AI —
+            let’s talk.
+          </p>
+        </motion.div>
+
+        {/* Direct Contact */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="border border-gray-800/50 rounded-2xl bg-gray-900/30 backdrop-blur-sm hover:border-cyan-500/50 hover:bg-gray-900/50 transition-all duration-300 p-6 sm:p-8 lg:p-12"
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16"
         >
-          <div className="space-y-6">
-            <div>
-              <h3 className="text-xl font-semibold text-white mb-6 text-center">
-                Connect with me
-              </h3>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <motion.a
-                  href="mailto:your.email@example.com"
-                  whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(0, 212, 255, 0.3)" }}
-                  whileTap={{ scale: 0.95 }}
-                  className="flex items-center justify-center px-6 py-3 border border-gray-700 rounded-xl text-white hover:border-cyan-500 hover:bg-gray-800/50 transition-all duration-200"
-                >
-                  Email
-                </motion.a>
-                <motion.a
-                  href="https://github.com/yourusername"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(0, 212, 255, 0.3)" }}
-                  whileTap={{ scale: 0.95 }}
-                  className="flex items-center justify-center px-6 py-3 border border-gray-700 rounded-xl text-white hover:border-cyan-500 hover:bg-gray-800/50 transition-all duration-200"
-                >
-                  GitHub
-                </motion.a>
-                <motion.a
-                  href="https://linkedin.com/in/yourusername"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(0, 212, 255, 0.3)" }}
-                  whileTap={{ scale: 0.95 }}
-                  className="flex items-center justify-center px-6 py-3 border border-gray-700 rounded-xl text-white hover:border-cyan-500 hover:bg-gray-800/50 transition-all duration-200"
-                >
-                  LinkedIn
-                </motion.a>
-              </div>
-            </div>
+          <ContactCard
+            icon={<Mail size={28} />}
+            label="Email"
+            value="rajan.developer09@gmail.com"
+            href="mailto:rajan.developer09@gmail.com"
+          />
 
-            <div className="pt-6 border-t border-gray-800">
-              <p className="text-gray-400 text-center">
-                Open to new opportunities and collaborations
-              </p>
-            </div>
-          </div>
+          <ContactCard
+            icon={<Phone size={28} />}
+            label="Phone"
+            value="+91 7016566752"
+            href="tel:+917016566752"
+          />
         </motion.div>
+
+        {/* Social Links */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+        >
+          <SocialCard
+            icon={<Github size={28} />}
+            label="GitHub"
+            value="Rajan-Jasani9"
+            href="https://github.com/Rajan-Jasani9/"
+          />
+
+          <SocialCard
+            icon={<Linkedin size={28} />}
+            label="LinkedIn"
+            value="rajanjasani"
+            href="https://www.linkedin.com/in/rajanjasani/"
+          />
+
+          <SocialCard
+            icon={<Instagram size={28} />}
+            label="Instagram"
+            value="@khanabadosh_r9"
+            href="https://www.instagram.com/khanabadosh_r9/"
+          />
+
+          <SocialCard
+            icon={<Code2 size={28} />}
+            label="LeetCode"
+            value="rajan_jasani9"
+            href="https://leetcode.com/u/rajan_jasani9/"
+          />
+        </motion.div>
+
       </div>
     </section>
+  );
+}
+
+/* ---------------------------------- */
+
+function ContactCard({
+  icon,
+  label,
+  value,
+  href,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  value: string;
+  href: string;
+}) {
+  return (
+    <a
+      href={href}
+      className="group border border-neutral-800 rounded-xl p-6 hover:border-neutral-600 transition-all duration-300"
+    >
+      <div className="flex items-center gap-4 mb-4 text-white">
+        {icon}
+        <span className="text-lg font-semibold">{label}</span>
+      </div>
+
+      <p className="text-gray-400 group-hover:text-gray-300 transition">
+        {value}
+      </p>
+    </a>
+  );
+}
+
+function SocialCard({
+  icon,
+  label,
+  value,
+  href,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  value: string;
+  href: string;
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group border border-neutral-800 rounded-xl p-6 hover:border-neutral-600 transition-all duration-300"
+    >
+      <div className="flex items-center gap-4 mb-4 text-white">
+        {icon}
+        <span className="text-lg font-semibold">{label}</span>
+      </div>
+
+      <p className="text-gray-400 group-hover:text-gray-300 transition">
+        {value}
+      </p>
+    </a>
   );
 }

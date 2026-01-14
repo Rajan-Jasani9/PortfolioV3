@@ -20,7 +20,7 @@ export default function Systems() {
   return (
     <section
       ref={ref}
-      className="py-16 sm:py-20 lg:py-24 px-4 sm:px-8 lg:px-16 bg-gradient-to-b from-gray-950 to-black"
+      className="py-16 sm:py-20 lg:py-24 px-4 sm:px-8 lg:px-16 from-gray-950 to-black"
       id="systems"
     >
       <div className="max-w-7xl mx-auto">

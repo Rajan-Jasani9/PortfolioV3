@@ -7,6 +7,7 @@ import Systems from "@/components/Systems";
 import PersonalBrand from "@/components/PersonalBrand";
 import Contact from "@/components/Contact";
 import CursorFollower from "@/components/CursorFollower";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <Systems />
       <PersonalBrand />
       <Contact />
+      <Footer />
     </main>
   );
 }
