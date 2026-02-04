@@ -34,14 +34,6 @@ const projects: Project[] = [
     image: <Image src="/hud-chatbot-preview.png" alt="HUD Chatbot Project" width={800} height={500} />
   },
   {
-    title: "Google/Yelp Review & Marketing Widgets Backend",
-    description:
-    "Recently built a FastAPI-based backend for generating customizable Google/Yelp reviews and marketing widgets. Scraped Yelp, used Google Reviews API, and utilized templates to produce a simple two-line HTML embed (div + script) for easy website integration.",
-    tech: ["FastAPI", "Python", "Web Scraping", "Google Reviews API", "Yelp API"],
-    link: "#",
-    image: "https://your-image-url-here.com/review-widgets-preview.png",
-  },
-  {
     title: "Measurement Management System",
     description:
       "Delivered a Measurement Management System for a civil engineering firm in Surat. Streamlined site data collection and reporting processes, and included an offline data sync process for seamless field operations.",
