@@ -81,10 +81,18 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
-          className="text-lg sm:text-2xl md:text-3xl text-gray-300 mb-4 sm:mb-6"
+          className="text-lg sm:text-2xl md:text-3xl text-gray-300 mb-1 sm:mb-2"
         >
           Backend Engineer • System Builder
         </motion.h2>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.35 }}
+          className="text-xs sm:text-sm text-gray-500 mb-4 sm:mb-6"
+        >
+          Open to full-time opportunities
+        </motion.p>
 
         {/* Tagline */}
         <motion.p
