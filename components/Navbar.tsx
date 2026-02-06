@@ -32,6 +32,33 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open to prevent background scroll and layout shift
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      const scrollY = window.scrollY;
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.left = "0";
+      document.body.style.right = "0";
+      document.body.style.overflow = "hidden";
+    } else {
+      const scrollY = document.body.style.top ? parseInt(document.body.style.top || "0", 10) : 0;
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
+      document.body.style.overflow = "";
+      if (scrollY) window.scrollTo(0, Math.abs(scrollY));
+    }
+    return () => {
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
+
   const navLinks = [
     { href: "#home", label: "Home", id: "home" },
     { href: "#skills", label: "Skills", id: "skills" },
@@ -117,28 +144,40 @@ export default function Navbar() {
         {/* Mobile Menu */}
         <AnimatePresence>
           {isMobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-              className="sm:hidden overflow-hidden border-t border-gray-800/50"
-            >
-              <div className="flex flex-col py-4">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    onClick={(e) => handleSmoothScroll(e, link.href)}
-                    className={`px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-900/50 transition-colors font-medium ${
-                      activeSection === link.id ? "text-white bg-gray-900/30" : ""
-                    }`}
-                  >
-                    {link.label}
-                  </a>
-                ))}
-              </div>
-            </motion.div>
+            <>
+              {/* Backdrop: closes menu on tap and blocks interaction with page */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="fixed inset-0 top-16 sm:hidden bg-black/60 backdrop-blur-sm z-0"
+                aria-hidden
+                onClick={() => setIsMobileMenuOpen(false)}
+              />
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3 }}
+                className="sm:hidden overflow-hidden border-t border-gray-800/50 max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain bg-black/95 relative z-10"
+              >
+                <div className="flex flex-col py-4">
+                  {navLinks.map((link) => (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      onClick={(e) => handleSmoothScroll(e, link.href)}
+                      className={`px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-900/50 transition-colors font-medium touch-manipulation ${
+                        activeSection === link.id ? "text-white bg-gray-900/30" : ""
+                      }`}
+                    >
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
+              </motion.div>
+            </>
           )}
         </AnimatePresence>
       </div>

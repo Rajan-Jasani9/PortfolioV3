@@ -22,7 +22,7 @@ const projects: Project[] = [
       "AI-powered CSV data analytics platform that enables seamless data analysis through intelligent chat. Upload CSV files and interact with an advanced AI assistant to extract insights, identify trends, and make data-driven decisions. Features include AI-powered chat for natural language queries, automatic data cleaning and transformation, AI-generated Excel-style formulas, stunning interactive visualizations and dashboards, and enterprise-grade encryption for secure data handling.",
     tech: ["AI Analytics", "CSV Processing", "NLP", "Data Visualization"],
     link: "https://fnmaunderwriter.ai/",
-    image: <Image src="/fnmaunderwriter-preview.png" alt="FNMA Underwriter" width={800} height={500} />
+    image: <Image src="/fnma.png" alt="FNMA Underwriter" width={800} height={500} />
 ,
   },
   {
