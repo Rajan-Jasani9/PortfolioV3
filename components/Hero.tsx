@@ -31,6 +31,7 @@ export default function Hero() {
   return (
     <section
       className="relative min-h-[85vh] sm:min-h-[90vh] lg:min-h-screen flex items-center justify-center px-4 sm:px-6 py-12 sm:py-16 lg:py-0 overflow-hidden bg-black"
+      className="relative min-h-[85vh] sm:min-h-[90vh] lg:min-h-screen flex items-center justify-center px-4 sm:px-6 py-12 sm:py-16 lg:py-0 overflow-hidden bg-black"
       id="home"
     >
       {/* 3D Background */}
@@ -81,10 +82,18 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
-          className="text-lg sm:text-2xl md:text-3xl text-gray-300 mb-4 sm:mb-6"
+          className="text-lg sm:text-2xl md:text-3xl text-gray-300 mb-1 sm:mb-2"
         >
           Backend Engineer • System Builder
         </motion.h2>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.35 }}
+          className="text-xs sm:text-sm text-gray-500 mb-4 sm:mb-6"
+        >
+          Open to full-time opportunities
+        </motion.p>
 
         {/* Tagline */}
         <motion.p
