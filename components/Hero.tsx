@@ -31,7 +31,6 @@ export default function Hero() {
   return (
     <section
       className="relative min-h-[85vh] sm:min-h-[90vh] lg:min-h-screen flex items-center justify-center px-4 sm:px-6 py-12 sm:py-16 lg:py-0 overflow-hidden bg-black"
-      className="relative min-h-[85vh] sm:min-h-[90vh] lg:min-h-screen flex items-center justify-center px-4 sm:px-6 py-12 sm:py-16 lg:py-0 overflow-hidden bg-black"
       id="home"
     >
       {/* 3D Background */}
