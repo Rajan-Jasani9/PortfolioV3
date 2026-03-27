@@ -12,7 +12,7 @@ export default function Contact() {
     <section
       ref={ref}
       id="contact"
-      className="bg-black px-6 sm:px-10 lg:px-24 py-32"
+      className="bg-black px-6 sm:px-10 lg:px-24 py-12"
     >
       <div className="max-w-7xl mx-auto">
 
@@ -59,31 +59,31 @@ export default function Contact() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
         >
           <SocialCard
-            icon={<Github size={28} />}
+            icon={<Github className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" />}
             label="GitHub"
             value="Rajan-Jasani9"
             href="https://github.com/Rajan-Jasani9/"
           />
 
           <SocialCard
-            icon={<Linkedin size={28} />}
+            icon={<Linkedin className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" />}
             label="LinkedIn"
             value="rajanjasani"
             href="https://www.linkedin.com/in/rajanjasani/"
           />
 
           <SocialCard
-            icon={<Instagram size={28} />}
+            icon={<Instagram className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" />}
             label="Instagram"
             value="@khanabadosh_r9"
             href="https://www.instagram.com/khanabadosh_r9/"
           />
 
           <SocialCard
-            icon={<Code2 size={28} />}
+            icon={<Code2 className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" />}
             label="LeetCode"
             value="rajan_jasani9"
             href="https://leetcode.com/u/rajan_jasani9/"
@@ -141,14 +141,16 @@ function SocialCard({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group border border-neutral-800 rounded-xl p-6 hover:border-neutral-600 transition-all duration-300"
+      className="group border border-neutral-800 rounded-xl p-3 sm:p-4 md:p-5 lg:p-6 hover:border-neutral-600 transition-all duration-300"
     >
-      <div className="flex items-center gap-4 mb-4 text-white">
-        {icon}
-        <span className="text-lg font-semibold">{label}</span>
+      <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 md:gap-4 mb-2 sm:mb-3 md:mb-4 text-white">
+        <div className="flex items-center justify-center sm:justify-start">
+          {icon}
+        </div>
+        <span className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold text-center sm:text-left">{label}</span>
       </div>
 
-      <p className="text-gray-400 group-hover:text-gray-300 transition">
+      <p className="text-xs sm:text-sm md:text-base text-gray-400 group-hover:text-gray-300 transition text-center sm:text-left">
         {value}
       </p>
     </a>

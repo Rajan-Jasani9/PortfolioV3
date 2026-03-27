@@ -1,18 +1,20 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
       
       // Update active section based on scroll position
-      const sections = ["home", "skills", "experience", "projects", "contact"];
+      const sections = ["home", "skills", "experience", "projects", "community", "certifications", "contact"];
       const scrollPosition = window.scrollY + 100;
       
       for (const section of sections.reverse()) {
@@ -35,6 +37,8 @@ export default function Navbar() {
     { href: "#skills", label: "Skills", id: "skills" },
     { href: "#experience", label: "Experience", id: "experience" },
     { href: "#projects", label: "Projects", id: "projects" },
+    { href: "#community", label: "Community Work", id: "community" },
+    { href: "#certifications", label: "Certifications", id: "certifications" },
     { href: "#contact", label: "Contact", id: "contact" },
   ];
 
@@ -50,6 +54,7 @@ export default function Navbar() {
         top: offsetPosition,
         behavior: "smooth",
       });
+      setIsMobileMenuOpen(false);
     }
   };
 
@@ -96,18 +101,46 @@ export default function Navbar() {
               </a>
             ))}
           </div>
-          <div className="sm:hidden flex items-center gap-4">
-            <motion.a
-              href="#contact"
+          <div className="sm:hidden flex items-center">
+            <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-4 py-2 border border-white text-white rounded-lg text-sm font-medium hover:bg-white hover:text-black transition-colors"
-              onClick={(e) => handleSmoothScroll(e, "#contact")}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="p-2 text-white hover:text-cyan-400 transition-colors"
+              aria-label="Toggle menu"
             >
-              Contact
-            </motion.a>
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </motion.button>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="sm:hidden overflow-hidden border-t border-gray-800/50"
+            >
+              <div className="flex flex-col py-4">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={(e) => handleSmoothScroll(e, link.href)}
+                    className={`px-4 py-3 text-gray-300 hover:text-white hover:bg-gray-900/50 transition-colors font-medium ${
+                      activeSection === link.id ? "text-white bg-gray-900/30" : ""
+                    }`}
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </motion.nav>
   );

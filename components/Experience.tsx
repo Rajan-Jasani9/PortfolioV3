@@ -43,7 +43,7 @@ export default function Experience() {
   return (
     <section
       ref={ref}
-      className="py-16 sm:py-20 lg:py-24 px-4 sm:px-8 lg:px-16  from-black to-gray-950"
+      className="py-12 sm:py-12 lg:py-12 px-4 sm:px-8 lg:px-16  from-black to-gray-950"
       id="experience"
     >
       <div className="max-w-7xl mx-auto">

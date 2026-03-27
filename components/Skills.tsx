@@ -78,7 +78,7 @@ export default function Skills() {
   return (
     <section
       ref={ref}
-      className="py-20 px-6 lg:px-16 bg-black"
+      className="py-12 px-6 lg:px-16 bg-black"
       id="skills"
     >
       <div className="max-w-7xl mx-auto">

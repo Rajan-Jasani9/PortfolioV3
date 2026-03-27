@@ -17,29 +17,13 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "FNMAUnderwriter",
+    title: "RAG PlayGround",
     description:
-      "AI-powered CSV data analytics platform that enables seamless data analysis through intelligent chat. Upload CSV files and interact with an advanced AI assistant to extract insights, identify trends, and make data-driven decisions. Features include AI-powered chat for natural language queries, automatic data cleaning and transformation, AI-generated Excel-style formulas, stunning interactive visualizations and dashboards, and enterprise-grade encryption for secure data handling.",
-    tech: ["AI Analytics", "CSV Processing", "NLP", "Data Visualization"],
-    link: "https://fnmaunderwriter.ai/",
-    image: <Image src="/fnmaunderwriter-preview.png" alt="FNMA Underwriter" width={800} height={500} />
+      "RAG PlayGround is a platform that allows you to play with RAG (Retrieval-Augmented Generation) and see how it works and check the retrieval results of your own documents.",
+    tech: ["RAG", "Python", "FastAPI", "React", "Tailwind CSS", "PostgreSQL", "Pinecone"],
+    link: "https://rag.rajanjasani.in/",
+    image: <Image src="/rag-playground.png" alt="RAG PlayGround" width={800} height={500} />
 ,
-  },
-  {
-    title: "HUD Finance-focused RAG Chatbot",
-    description:
-      "Built the backend for a HUD (Housing and Urban Development) finance-focused RAG chatbot. Included document upload, processing, and question-answering capabilities using vector search for intelligent document retrieval.",
-    tech: ["FastAPI", "Python", "Vector Databases", "Pinecone", "OpenAI", "RAG"],
-    link: "#",
-    image: <Image src="/hud-chatbot-preview.png" alt="HUD Chatbot Project" width={800} height={500} />
-  },
-  {
-    title: "Google/Yelp Review & Marketing Widgets Backend",
-    description:
-    "Recently built a FastAPI-based backend for generating customizable Google/Yelp reviews and marketing widgets. Scraped Yelp, used Google Reviews API, and utilized templates to produce a simple two-line HTML embed (div + script) for easy website integration.",
-    tech: ["FastAPI", "Python", "Web Scraping", "Google Reviews API", "Yelp API"],
-    link: "#",
-    image: "https://your-image-url-here.com/review-widgets-preview.png",
   },
   {
     title: "Measurement Management System",
@@ -58,7 +42,7 @@ export default function Projects() {
   return (
     <section
       ref={ref}
-      className="py-20 px-6 lg:px-16 bg-black"
+      className="py-12 px-6 lg:px-16 bg-black"
       id="projects"
     >
       <div className="max-w-7xl mx-auto">
