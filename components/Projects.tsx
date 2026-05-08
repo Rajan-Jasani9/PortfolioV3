@@ -17,13 +17,28 @@ interface Project {
 
 const projects: Project[] = [
   {
+    title: "Ask HipHop",
+    description:
+      "Ask.HipHop is a research and exploration tool built for understanding hip-hop’s history, cultural impact, and evolving narratives, ongoing fueds and controversies without collapsing complexity into oversimplified answers.",
+    tech: ["RAG", "Python", "FastAPI", "React", "Tailwind CSS", "PostgreSQL", "S3 Vector Buckets"],
+    link: "https://chat.ask.hiphop",
+    image: <Image src="/cha.png" alt="RAG PlayGround" width={800} height={500} />,
+  },
+  {
+    title: "Bina Ai",
+    description:
+      "A Django-based RAG (Retrieval-Augmented Generation) system for TCM (Traditional Chinese Medicine) exam preparation, featuring an intelligent chat interface with scope classification and a microservice-based embedding architecture.",
+    tech: ["RAG", "Python", "Django", "FastAPI", "React", "Tailwind CSS", "PostgreSQL", "S3 Vector Buckets"],
+    link: "https://app.tcmreview.com",
+    image: <Image src="/binaAI.png" alt="RAG PlayGround" width={800} height={500} />,
+  },
+  {
     title: "RAG PlayGround",
     description:
       "RAG PlayGround is a platform that allows you to play with RAG (Retrieval-Augmented Generation) and see how it works and check the retrieval results of your own documents.",
-    tech: ["RAG", "Python", "FastAPI", "React", "Tailwind CSS", "PostgreSQL", "Pinecone"],
+    tech: ["RAG", "Python", "FastAPI", "React", "Tailwind CSS", "PostgreSQL", "PG Vector", "ElasticSearch"],
     link: "https://rag.rajanjasani.in/",
-    image: <Image src="/rag-playground.png" alt="RAG PlayGround" width={800} height={500} />
-,
+    image: <Image src="/rag-playground.png" alt="RAG PlayGround" width={800} height={500} />,
   },
   {
     title: "Measurement Management System",
@@ -74,7 +89,7 @@ export default function Projects() {
               className="group relative border border-gray-800/50 rounded-2xl bg-gray-900/30 backdrop-blur-sm hover:border-cyan-500/50 hover:bg-gray-900/50 transition-all duration-300 overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/10 group-hover:to-blue-500/10 transition-all duration-300"></div>
-              
+
               {/* Preview Area */}
               {(project.image || project.video) && project.image}
 
