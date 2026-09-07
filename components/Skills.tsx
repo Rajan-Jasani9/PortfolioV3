@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import type { IconType } from "react-icons";
 
 import {
   SiPython,
@@ -21,7 +22,7 @@ import { FaDatabase, FaCloud, FaServer } from "react-icons/fa";
    Icon Mapping (Only Real, Existing Icons)
 -------------------------------------------------- */
 
-const skillIcons: Record<string, React.ComponentType<any>> = {
+const skillIcons: Record<string, IconType> = {
   Python: SiPython,
   Django: SiDjango,
   JavaScript: SiJavascript,
