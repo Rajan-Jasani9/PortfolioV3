@@ -133,11 +133,6 @@ function RequestTrace() {
   useEffect(() => {
     if (!run) return;
 
-    if (reduceMotion) {
-      setActiveStep(traceSteps.length - 1);
-      return;
-    }
-
     const timers = traceSteps.map((_, index) =>
       window.setTimeout(() => setActiveStep(index), index * 470)
     );
@@ -147,7 +142,15 @@ function RequestTrace() {
       timers.forEach(window.clearTimeout);
       window.clearTimeout(reset);
     };
-  }, [run, reduceMotion]);
+  }, [run]);
+
+  const startTrace = () => {
+    if (reduceMotion) {
+      setActiveStep(traceSteps.length - 1);
+      return;
+    }
+    setRun((value) => value + 1);
+  };
 
   return (
     <div className="trace-panel">
@@ -156,7 +159,7 @@ function RequestTrace() {
           <p>Request path</p>
           <h4>Trace one answer through the system.</h4>
         </div>
-        <button type="button" onClick={() => setRun((value) => value + 1)}>
+        <button type="button" onClick={startTrace}>
           Trace request <span aria-hidden="true">→</span>
         </button>
       </div>
