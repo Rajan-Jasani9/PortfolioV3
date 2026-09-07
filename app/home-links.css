@@ -1,0 +1,17 @@
+.sx-case-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 28px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--ink);
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 650;
+  transition: color .22s, border-color .22s, gap .28s cubic-bezier(.22,1,.36,1);
+}
+.sx-case-link:hover {
+  color: var(--signal);
+  border-color: var(--signal);
+  gap: 15px;
+}
