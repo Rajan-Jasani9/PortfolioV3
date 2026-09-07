@@ -2,49 +2,50 @@ import "./globals.css";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Rajan Jasani | Backend Engineer & SaaS Developer | Python, Django, FastAPI Expert",
+  metadataBase: new URL("https://rajanjasani.in"),
+  title: {
+    default: "Rajan Jasani — Backend Systems & Applied AI",
+    template: "%s | Rajan Jasani",
+  },
   description:
-    "Rajan Jasani is a Backend Engineer specializing in Python, Django, FastAPI, AWS, and scalable SaaS systems. Expert in PostgreSQL, Vector Databases, and cloud infrastructure.",
+    "Rajan Jasani is a backend and applied AI engineer building production RAG systems, scalable APIs, async pipelines and cloud-backed software products.",
   keywords: [
     "Rajan Jasani",
     "Backend Engineer",
+    "Applied AI Engineer",
     "Python Developer",
-    "Django Developer",
-    "Django REST Framework",
-    "FastAPI Developer",
-    "PostgreSQL Developer",
-    "Vector Database Expert",
-    "AWS Engineer",
-    "SaaS Developer",
-    "Backend Developer India",
-    "Python Backend Engineer",
-    "API Developer",
-    "Cloud Infrastructure Engineer",
+    "FastAPI",
+    "Django",
+    "RAG Engineer",
+    "System Design",
+    "PostgreSQL",
+    "AWS",
+    "AI Engineer Pune",
   ],
   authors: [{ name: "Rajan Jasani" }],
   creator: "Rajan Jasani",
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
-    locale: "en_US",
-    url: "https://rajanjasani.dev",
-    siteName: "Rajan Jasani Portfolio",
-    title: "Rajan Jasani | Backend Engineer & SaaS Developer",
+    locale: "en_IN",
+    url: "https://rajanjasani.in",
+    siteName: "Rajan Jasani",
+    title: "Rajan Jasani — Backend Systems & Applied AI",
     description:
-      "Backend Engineer specializing in Python, Django, FastAPI, AWS, and scalable SaaS systems.",
+      "Production backend systems, retrieval architecture, applied AI and system design.",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Rajan Jasani - Backend Engineer",
+        alt: "Rajan Jasani — Backend Systems & Applied AI",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rajan Jasani | Backend Engineer & SaaS Developer",
-    description:
-      "Backend Engineer specializing in Python, Django, FastAPI, AWS, and scalable SaaS systems.",
+    title: "Rajan Jasani — Backend Systems & Applied AI",
+    description: "Production backend systems, retrieval architecture, applied AI and system design.",
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -58,19 +59,39 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "your-google-verification-code", // Replace with your actual verification code
-  },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Rajan Jasani",
+    url: "https://rajanjasani.in",
+    jobTitle: "Backend & Applied AI Engineer",
+    sameAs: [
+      "https://github.com/Rajan-Jasani9",
+      "https://www.linkedin.com/in/rajanjasani",
+    ],
+    knowsAbout: [
+      "Backend engineering",
+      "Retrieval augmented generation",
+      "System design",
+      "FastAPI",
+      "Django",
+      "PostgreSQL",
+      "AWS",
+    ],
+  };
+
   return (
     <html lang="en">
-      <body className="antialiased">{children}</body>
+      <body>
+        {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        />
+      </body>
     </html>
   );
 }
