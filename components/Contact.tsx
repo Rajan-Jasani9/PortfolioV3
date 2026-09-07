@@ -27,7 +27,7 @@ export default function Contact() {
             Let’s connect
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl">
-            If you're building something serious — infrastructure, SaaS, or AI —
+            If you’re building something serious — infrastructure, SaaS, or AI —
             let’s talk.
           </p>
         </motion.div>
