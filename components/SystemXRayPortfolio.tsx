@@ -302,6 +302,7 @@ export default function SystemXRayPortfolio() {
                 <div><strong>500+</strong><span>hours video</span></div>
                 <div><strong>40+</strong><span>backend APIs</span></div>
               </div>
+              <a className="sx-case-link" href="/work/ask-hiphop">Read engineering case study <span aria-hidden="true">→</span></a>
             </Reveal>
           </div>
 
@@ -332,7 +333,7 @@ export default function SystemXRayPortfolio() {
           <div className="sx-private-copy">
             <p className="sx-private-lead">Curriculum-aware AI exam preparation with grounded answers, citations, quizzes and controlled access.</p>
             <p>
-              The public case study will explain the architecture and development process without publishing private code, client data or confidential prompts.
+              The public case study explains the architecture and development process without publishing private code, client data or confidential prompts.
             </p>
             <dl className="sx-dossier-list">
               <div><dt>Problem</dt><dd>Ground answers inside a strict exam curriculum.</dd></div>
@@ -340,6 +341,7 @@ export default function SystemXRayPortfolio() {
               <div><dt>Focus</dt><dd>Scope classification, citations, structured outputs and usage gating.</dd></div>
               <div><dt>Disclosure</dt><dd>Architecture only; client-sensitive details omitted.</dd></div>
             </dl>
+            <a className="sx-case-link" href="/work/bina-ai">Read sanitized case study <span aria-hidden="true">→</span></a>
           </div>
         </article>
 
